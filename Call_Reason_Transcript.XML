@@ -1,0 +1,793 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ScriptContainer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" noNamespaceSchemaLocation="http://lab-iniws01/scriptcontainer.xsd" BusNo="4597359" UserID="19677571">
+  <Actions>
+    <ActionStruct>
+      <ActionID>24</ActionID>
+      <Action>PLAY</Action>
+      <Caption>Play</Caption>
+      <Parameters>
+        <string>"%Hello. I see you are calling from
+" "%&lt;speak&gt;&lt;say-as interpret-as=verbatim&gt;6149493359&lt;/say-as&gt;&lt;/speak&gt;" "%Is this the phone number associated to your account? Press 1 or say yes. Press 2 or say no."</string>
+        <string />
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>176</X>
+      <Y>336</Y>
+      <DependencyOrder>17</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>23</ActionID>
+      <Action>AgentAssistV1_LIBID_b2aedee9-ab1e-4923-9d64-04cee8118482</Action>
+      <Caption>Agent Assist</Caption>
+      <Parameters>
+        <string>CEASE_AutoSummary</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>176</X>
+      <Y>560</Y>
+      <DependencyOrder>16</DependencyOrder>
+      <Impl_Type>1</Impl_Type>
+      <LibraryID>b2aedee9-ab1e-4923-9d64-04cee8118482</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>22</ActionID>
+      <Action>CCARD_FIELDS</Action>
+      <Caption>CCCustomFields</Caption>
+      <Parameters>
+        <string>Call Reason</string>
+        <string>{call_reason}</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>14</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>800</X>
+      <Y>224</Y>
+      <DependencyOrder>15</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>a89cda0d-3ee8-45b4-be52-7bb176ac11ed</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>14</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>21</ActionID>
+      <Action>PLAY</Action>
+      <Caption>We are connecting you to an agent now</Caption>
+      <Parameters>
+        <string>"%We are connecting you to an agent now." </string>
+        <string />
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>22</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>720</X>
+      <Y>224</Y>
+      <DependencyOrder>14</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>22</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>20</ActionID>
+      <Action>ASRYESNO</Action>
+      <Caption>Call reason correct?</Caption>
+      <Parameters>
+        <string>"%You are calling about {call_reason}. Is that correct?"</string>
+        <string />
+        <string />
+        <string>50</string>
+        <string>10</string>
+        <string>ASRYESNOResult</string>
+        <string>ASRConf</string>
+        <string>False</string>
+        <string>True</string>
+        <string />
+        <string>False</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>Yes</Text>
+          <ActionID>21</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>No</Text>
+          <ActionID>6</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>NoConfidence</Text>
+          <ActionID>6</ActionID>
+          <Index>2</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>Timeout</Text>
+          <ActionID>6</ActionID>
+          <Index>3</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>Error</Text>
+          <ActionID>6</ActionID>
+          <Index>4</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>DTMF</Text>
+          <ActionID>21</ActionID>
+          <Index>5</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>592</X>
+      <Y>224</Y>
+      <DependencyOrder>13</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>2d375332-b6c2-403f-8bbc-241da4d1ac9b</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>21</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>6</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>2</KeyName>
+            <ActionId>6</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>3</KeyName>
+            <ActionId>6</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>4</KeyName>
+            <ActionId>6</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>5</KeyName>
+            <ActionId>21</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>19</ActionID>
+      <Action>Transcribe_LIBID_21a059e6-fe40-4f12-9ee1-b70d62846f7d</Action>
+      <Caption>Transcribe</Caption>
+      <Parameters>
+        <string>AKR_Transcription</string>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string>call_reason</string>
+        <string>errorDetails</string>
+        <string />
+        <string />
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>Success</Text>
+          <ActionID>20</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>Error</Text>
+          <ActionID>4</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>DTMF</Text>
+          <ActionID>20</ActionID>
+          <Index>2</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>UserInputTimeout</Text>
+          <ActionID>4</ActionID>
+          <Index>3</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>448</X>
+      <Y>224</Y>
+      <DependencyOrder>8</DependencyOrder>
+      <Impl_Type>1</Impl_Type>
+      <LibraryID>21a059e6-fe40-4f12-9ee1-b70d62846f7d</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>20</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>4</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>2</KeyName>
+            <ActionId>20</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>3</KeyName>
+            <ActionId>4</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>18</ActionID>
+      <Action>PLAY</Action>
+      <Caption>After the tone. Please briefly describe what you are calling about.</Caption>
+      <Parameters>
+        <string>"%Please briefly describe what you are calling about. " "%When you are finished recording, press the hash or pound key." "beep.wav"</string>
+        <string />
+        <string>False</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>19</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches>
+        <BranchStruct>
+          <Text>Digit</Text>
+          <ActionID>19</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>272</X>
+      <Y>224</Y>
+      <DependencyOrder>11</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>19</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>19</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>17</ActionID>
+      <Action>MESSAGES</Action>
+      <Caption>Messages</Caption>
+      <Parameters>
+        <string>Agent</string>
+        <string />
+        <string>{call_reason}</string>
+        <string>3</string>
+        <string>False</string>
+        <string />
+      </Parameters>
+      <Branches />
+      <Cases />
+      <X>336</X>
+      <Y>544</Y>
+      <DependencyOrder>10</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>4266fb7b-7c7a-4b23-9ee8-02c2fa2a2341</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>14</ActionID>
+      <Action>REQAGENT</Action>
+      <Caption>19677571</Caption>
+      <Parameters>
+        <string>10681350</string>
+        <string>19677571</string>
+        <string>DefaultfromSkill</string>
+        <string>0</string>
+        <string>1</string>
+        <string />
+        <string>1000</string>
+        <string>"%The customer is calling about {call_reason}"</string>
+        <string>AfterSequence</string>
+        <string>DefaultFromSkill</string>
+        <string />
+        <string>1</string>
+        <string>20</string>
+        <string>NotApplicable</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>5</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>896</X>
+      <Y>224</Y>
+      <DependencyOrder>9</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>689a4a1b-fa0d-47b3-9a02-cbeb4735f08f</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>5</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>9</ActionID>
+      <Action>MUSIC</Action>
+      <Caption>Music</Caption>
+      <Parameters>
+        <string>Autumn-Breezes.wav</string>
+        <string>0</string>
+        <string>0</string>
+        <string />
+        <string />
+        <string />
+        <string>False</string>
+        <string>True</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>Complete</Text>
+          <ActionID>5</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>1120</X>
+      <Y>224</Y>
+      <DependencyOrder>8</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>dbcc742b-28d8-42d1-9d95-0d9abf20b04b</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>5</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>8</ActionID>
+      <Action>ONANSWER</Action>
+      <Caption>Onanswer</Caption>
+      <Parameters>
+        <string>SKLNAME</string>
+        <string>FIRST</string>
+        <string>LAST</string>
+        <string>AGENTID</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>23</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>64</X>
+      <Y>560</Y>
+      <DependencyOrder>7</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>4b611ba4-8e81-45a6-9fcc-97c24f43ccbc</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>23</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>7</ActionID>
+      <Action>WAIT</Action>
+      <Caption>Wait</Caption>
+      <Parameters>
+        <string>1</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>18</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>272</X>
+      <Y>128</Y>
+      <DependencyOrder>6</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>5bf67b1c-9736-434d-9b6f-0d856aea8f16</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>18</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>6</ActionID>
+      <Action>LOOP</Action>
+      <Caption>Loop 10x</Caption>
+      <Parameters>
+        <string>10</string>
+        <string>VMC1</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>Finished</Text>
+          <ActionID>18</ActionID>
+          <Index>0</Index>
+          <Segments />
+        </BranchStruct>
+        <BranchStruct>
+          <Text>Repeat</Text>
+          <ActionID>7</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>464</X>
+      <Y>128</Y>
+      <DependencyOrder>5</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>a10f9f27-a5dd-48ba-ae37-e206fc6e101b</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>0</KeyName>
+            <ActionId>18</ActionId>
+            <Segments />
+          </BranchInfo>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>7</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>5</ActionID>
+      <Action>WAIT</Action>
+      <Caption>Wait</Caption>
+      <Parameters>
+        <string>1</string>
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>9</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>992</X>
+      <Y>224</Y>
+      <DependencyOrder>4</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>5bf67b1c-9736-434d-9b6f-0d856aea8f16</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>9</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>4</ActionID>
+      <Action>LOOP</Action>
+      <Caption>Loop 3x</Caption>
+      <Parameters>
+        <string>3</string>
+        <string>VMC1</string>
+      </Parameters>
+      <Branches>
+        <BranchStruct>
+          <Text>Repeat</Text>
+          <ActionID>3</ActionID>
+          <Index>1</Index>
+          <Segments />
+        </BranchStruct>
+      </Branches>
+      <Cases />
+      <X>448</X>
+      <Y>400</Y>
+      <DependencyOrder>3</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>a10f9f27-a5dd-48ba-ae37-e206fc6e101b</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>-1</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches>
+          <BranchInfo>
+            <KeyName>1</KeyName>
+            <ActionId>3</ActionId>
+            <Segments />
+          </BranchInfo>
+        </Branches>
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>3</ActionID>
+      <Action>PLAY</Action>
+      <Caption>No Voice</Caption>
+      <Parameters>
+        <string>"%I didn’t hear anything. Please try your recording again."</string>
+        <string>I didn’t hear anything. Please try your recording again.</string>
+        <string>True</string>
+        <string>True</string>
+        <string />
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>18</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>272</X>
+      <Y>400</Y>
+      <DependencyOrder>2</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b1b9a2dd-65b6-4626-9cf5-9cfa69cf59e2</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>18</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>2</ActionID>
+      <Action>TTSVOICE</Action>
+      <Caption>TTSVOICE</Caption>
+      <Parameters>
+        <string />
+        <string>google</string>
+        <string>en-US-Neural2-H</string>
+        <string />
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>24</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>176</X>
+      <Y>224</Y>
+      <DependencyOrder>1</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>8e121149-83ef-40e0-8ffe-341db5302671</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>24</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+    <ActionStruct>
+      <ActionID>1</ActionID>
+      <Action>BEGIN</Action>
+      <Caption>Begin</Caption>
+      <Parameters>
+        <string />
+        <string />
+        <string />
+      </Parameters>
+      <DefaultNextAction>
+        <Text />
+        <ActionID>2</ActionID>
+        <Index>0</Index>
+        <Segments />
+      </DefaultNextAction>
+      <Branches />
+      <Cases />
+      <X>48</X>
+      <Y>224</Y>
+      <DependencyOrder>0</DependencyOrder>
+      <Impl_Type>0</Impl_Type>
+      <LibraryID>b2f794c5-0232-40e7-9830-76d573bf57d7</LibraryID>
+      <ExtraInfo>
+        <DefaultBranch>
+          <ActionId>2</ActionId>
+          <Segments />
+        </DefaultBranch>
+        <Branches />
+        <CaseBranches />
+      </ExtraInfo>
+      <xws>0</xws>
+      <yws>0</yws>
+    </ActionStruct>
+  </Actions>
+  <LibraryItem LibraryID="c1d9dff0-c35a-4698-8455-640e6597fa57" ApiClassificationId="0" BusNo="4597359" Name="Call_Reason_Transcript" Alias="Call_Reason_Transcript" MediaType="4" RoutingMode="" VariableRedaction="">
+    <Icon>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</Icon>
+    <ImplPath>PeterStoesz\Voice\Call_Reason_Transcript</ImplPath>
+    <CreateDate>2023-11-02T15:29:51.943</CreateDate>
+    <ModifyDate>2023-11-09T18:59:58.3</ModifyDate>
+    <ModifyUserID>19677571</ModifyUserID>
+    <ModifiedBy>Peter Stoesz</ModifiedBy>
+    <URI>/custom/4597359/Call_Reason_Transcript</URI>
+    <DefaultTimeZone>Mountain Standard Time</DefaultTimeZone>
+    <Parameters />
+    <Branches />
+  </LibraryItem>
+  <MediaType>4</MediaType>
+  <ModifyDate>0001-01-01T00:00:00</ModifyDate>
+</ScriptContainer>
