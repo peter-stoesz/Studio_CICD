@@ -1,0 +1,41 @@
+node {  
+   stage('Checkout') {
+     echo "Preparation Stage"     
+     checkout scm 
+   }    
+   stage('Publish Script Package') {
+     sh '''
+        echo 'Iterating over all XML files in repo'
+        search_dir=$(find . -name '*.XML')
+        
+        BASE_DIRECTORY=$(dirname ${search_dir})
+        echo "#$BASE_DIRECTORY#";
+        cd $BASE_DIRECTORY
+            
+        for i in $search_dir;
+        do
+            echo $i
+            echo 'Convert file to base64 and invoke CXone API to push it'
+
+            base_name=$(basename ${i})
+            base64 $base_name > encodedData.txt
+            encoded="$(cat encodedData.txt)"
+            
+            file_name_without_extension=${base_name%.*}        
+            script_path='CI_CD\\\\'"${file_name_without_extension}"                        
+            
+            payload='{"scriptPath": "'$script_path'","body":"'$encoded'"}'
+                       
+            token='eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyOjExZWE5ZjkwLTE2MDktMzJiMC05YzE4LTAyNDJhYzExMDAwMyIsInJvbGUiOnsibGVnYWN5SWQiOiJBZG1pbmlzdHJhdG9yIiwic2Vjb25kYXJ5Um9sZXMiOltdLCJpZCI6IjExZTg0NzNhLTgyMWUtYzUxMC04MDMyLTAyNDJhYzExMDAwNSIsImxhc3RVcGRhdGVUaW1lIjoxNzAyMDcwMzAwMDAwfSwiaWNBZ2VudElkIjoiMTk2Nzc1NzEiLCJpc3MiOiJodHRwczpcL1wvYXV0aC5uaWNlLWluY29udGFjdC5jb20iLCJnaXZlbl9uYW1lIjoiUGV0ZXIiLCJhdWQiOiJpbmNvbnRhY3QgYWRtaW5AaW5jb250YWN0IGluYy4iLCJpY1NQSWQiOiI1OCIsImljQlVJZCI6NDU5NzM1OSwibmFtZSI6InBldGVyc0BiMzIuY29tIiwidGVuYW50SWQiOiIxMWU4NDczYS03ZmE2LWU3NDAtODc4My0wMjQyYWMxMTAwMDYiLCJleHAiOjE3MDI5MTE4NTEsImlhdCI6MTcwMjkwODI1MSwiZmFtaWx5X25hbWUiOiJTdG9lc3oiLCJ0ZW5hbnQiOiJTRV9EZW1vX0IzMiIsInZpZXdzIjp7fSwiaWNDbHVzdGVySWQiOiJCMzIifQ.kSXIiOsTPJys_1Disp8-ZsTo9re_Q7--vtdaO18zhnBHe_4YkLxUootX5bZE58zqaA1dPd79ylMTw2C_wFNs8gCHmtV03fBGKMhI3QIDa5UlPe2pRZF6lCuBO0q-noz1Ig1d9agMcjA0K6BeWU7cFCuksVoNhw5uoyRes9wni10'
+
+            result=$(curl --location --request POST \
+                'https://api-b32.nice-incontact.com/inContactAPI/services/v18.0/scripts' --header 'accept: */*' \
+                --header 'Content-Type: application/json' \
+                --header 'Authorization: Bearer '"$token" \
+                --data-raw "$payload") 
+            echo "Result is $result"
+
+        done;
+      '''
+   }   
+}
